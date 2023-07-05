@@ -25,8 +25,6 @@ const Dashboard = () => {
     }
   };
 
-  console.log(users);
-
   const handleDeleteUser = (id) => {
     let newUsers = users.filter((user) => user.id !== id);
     setUsers(newUsers);
@@ -51,21 +49,19 @@ const Dashboard = () => {
   }
 
   return (
-    <>
-      <div className="card-items">
-        {users.map((user) => {
-          return (
-            <div key={user.id}>
-              <UserCard
-                user={user}
-                onEdit={handleEditUser}
-                deleteUser={handleDeleteUser}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </>
+    <div className="card-items">
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <UserCard
+              user={user}
+              onEdit={handleEditUser}
+              deleteUser={handleDeleteUser}
+            />
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
